@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.MenuDao">
+
+
+    <resultMap id="menuMap" type="com.baizhi.entity.Menu" >
+        <result column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="iconCls" property="iconCls" />
+        <result column="url" property="url" />
+        <result column="parent_id" property="parent_id" />
+
+        <collection property="list" javaType="java.util.List"  ofType="com.baizhi.entity.Menu">
+            <!--下边这个result映射的时员工的相关属性  -->
+            <result column="id_" property="id"/>
+            <result column="title_" property="title"/>
+            <result column="parent_id_" property="parent_id"/>
+            <result column="iconCls_" property="iconCls"/>
+            <result column="url_" property="url"/>
+
+        </collection>
+    </resultMap>
+
+
+
+    <select id="selectAll" resultMap="menuMap">
+        select t1.*,t2.* tit from  menu t1
+			left join menu t2
+	        on t1.id = t2.parent_id
+	        WHERE t1.parent_id IS NULL
+    </select>
+
+
+
+
+
+
+</mapper>
