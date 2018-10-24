@@ -15,6 +15,7 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping("/menu")
 public class MenuController {
 
     @Autowired
@@ -25,7 +26,6 @@ public class MenuController {
     public List<Menu> queryAllByCategory() {
 
         List<Menu> menuList = menuService.queryAllByCategory();
-
 
         return menuList;
 

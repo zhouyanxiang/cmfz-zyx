@@ -36,7 +36,7 @@
 			function doLogin() {
 			//  form 表单提交
             $("#loginForm").form("submit", {
-                url:"login.do",
+                url:"${pageContext.request.contextPath}/admin/login.do",
 
                 success:function(data){
                    /* alert(data);*/

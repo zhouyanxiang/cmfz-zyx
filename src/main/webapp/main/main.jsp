@@ -9,12 +9,15 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/themes/icon.css">
+
     <script type="text/javascript">
         <!--菜单处理-->
 
         $(function () {
             $.ajax({
-                url: "${pageContext.request.contextPath}/queryAllByCategory.do",
+                url: "${pageContext.request.contextPath}/menu/queryAllByCategory.do",
                 type: "get",
                 dataType: "JSON",
                 success: function (data) {
@@ -48,8 +51,9 @@
                     title: title,
                     selected: true,
                     iconCls: iconCls,
-                    href: "${pageContext.request.contextPath}/" + url,
+                    href: "${pageContext.request.contextPath}" + url,
                     closable:true
+
                 })
             }
         };

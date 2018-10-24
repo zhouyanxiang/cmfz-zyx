@@ -1,8 +1,10 @@
 package com.baizhi.test;
 
 import com.baizhi.CmfzApp;
+import com.baizhi.dao.BannerDao;
 import com.baizhi.dao.MenuDao;
 import com.baizhi.entity.Admin;
+import com.baizhi.entity.Banner;
 import com.baizhi.entity.Menu;
 import com.baizhi.service.AdminService;
 import org.junit.Test;
@@ -25,6 +27,8 @@ public class TestApp {
     AdminService service;
     @Autowired
     MenuDao dao;
+    @Autowired
+    BannerDao bannerDao;
 
     @Test
     public void login(){
@@ -36,11 +40,22 @@ public class TestApp {
     }
 
     @Test
-   public void selectAlll(){
+   public void selectAllMenu(){
        List<Menu> list = dao.selectAll();
        System.out.println(list);
 
    }
+
+   @Test
+   public void queryAllBanner(){
+
+       List<Banner> bannerList = bannerDao.selectAll();
+
+       System.out.println(bannerList);
+
+   }
+
+
 }
 
     /*mvn install:install-file -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3.2 -Dfile=f:/kaptcha-2.3.2.jar -Dpackaging=jar -DgeneratePom=true

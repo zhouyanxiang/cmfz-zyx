@@ -16,6 +16,7 @@ import java.util.Map;
  * Created by admin on 2018/10/23.
  */
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
     public AdminService adminService;
