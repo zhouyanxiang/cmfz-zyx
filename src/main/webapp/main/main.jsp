@@ -22,7 +22,7 @@
                     $.each(data, function (index, first) {
 
                         var c = "";
-                        $.each(first.child, function (index1, second) {
+                        $.each(first.list, function (index1, second) {
                             c += "<div style='text-align: center'><a href='#' class='easyui-linkbutton' data-options=\"iconCls:'icon-search',plain:true\" onclick=\"addTabs('" + second.title + "','" + second.url + "','" + second.iconCls + "')\">" + second.title + "</a></div>";
                         })
                         $('#aa').accordion('add', {
