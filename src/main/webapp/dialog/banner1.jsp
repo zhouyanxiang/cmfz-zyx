@@ -47,7 +47,7 @@
                 iconCls: 'icon-add',
                 text: "添加",
                 handler: function () {
-                    $("#dd").dialog("open")
+                    $("#addDialog").dialog("open")
                     //alert('添加按钮')
                 }
             }, '-', {
@@ -96,12 +96,14 @@
     })
 
 
-    function submit() {
-        $('#ff').form('submit',{
+    function doAdd() {
+
+
+        $("#addForm").form("submit",{
             url:"${pageContext.request.contextPath}/banner/add.do",
             success:function(data){
                 if(data=="true"){
-                    // alert(data);
+                   // alert(data);
                     alert("添加成功");
                 }else{
                     //alert(data);
@@ -109,49 +111,29 @@
                 }
 
                 //关闭修改对话框
-                $("#dd").dialog("close");
+                $("#addDialog").dialog("close");
 
                 //刷新datagrid
                 $("#dg").datagrid("reload")
 
             }
-        } )
+        });
+
     }
 </script>
 
 
 <table id="dg"></table>
-<div id="dd" class="easyui-dialog" title="添加轮播图" style="width:400px;height:200px;"
-     data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true,buttons:[{
-				text:'保存',
-				handler:function(){
-                   submit()
-				}
-			},{
-				text:'关闭',
-				handler:function(){
-				 $('#dd').dialog('close')
-				}
-			}]">
-    <form id="ff" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="name">名字:</label>
-            <input id="name" class="easyui-validatebox" type="text" name="name" data-options="required:true" />
-        </div>
-        <div>
-            <label for="desc">描述:</label>
-            <input id="desc" class="easyui-validatebox" type="text" name="description" data-options="required:true" />
-        </div>
-        <div>
-            <label for="img">图片:</label>
-            <input id="img" class="easyui-filebox" name="photo" style="width:300px">
-        </div>
-
-        <select id="status" class="easyui-combobox" name="status" style="width:200px;">
-            <option value="Y">展示</option>
-            <option value="N">不展示</option>
-        </select>
+<div id="addDialog">
+    <form id="addForm" method="post" enctype="multipart/form-data" contenteditable="true">
+        标题：<input id="name" name="name"/><br/>
+        图片：<input id="url" type="file" name="photo" /><br/>
+        状态：<input id="status" name="status"/><br/>
+       <%-- 创建时间：<input id="createDate"/><br/>--%>
+        描述：<input id="description" name="description"/><br/>
     </form>
-
+</div>
+<div id="dialogBtn">
+    <a class="easyui-linkbutton" id = "regBtn" onclick="doAdd()">立即添加</a>
 </div>
 
