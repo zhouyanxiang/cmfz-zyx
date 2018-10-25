@@ -49,7 +49,7 @@ public class TestApp {
    @Test
    public void queryAllBanner(){
 
-       List<Banner> bannerList = bannerDao.selectAll();
+       List<Banner> bannerList = bannerDao.selectAll(1,5);
 
        System.out.println(bannerList);
 

@@ -4,13 +4,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>持名法州主页</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/themes/IconExtension.css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.edatagrid.js"></script>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../themes/IconExtension.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
+    <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
+    <link rel="stylesheet" type="text/css" href="../themes/icon.css">
 
     <script type="text/javascript">
         <!--菜单处理-->
@@ -51,7 +52,7 @@
                     title: title,
                     selected: true,
                     iconCls: iconCls,
-                    href: "${pageContext.request.contextPath}" + url,
+                    href: "${pageContext.request.contextPath}/" + url,
                     closable:true
 
                 })

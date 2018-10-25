@@ -4,10 +4,11 @@
 <script type="text/javascript">
     $(function () {
         $('#dg').edatagrid({
-            updateUrl:"${pageContext.request.contextPath}/banner/update",
-            url: '${pageContext.request.contextPath}/banner/queryAllBanner.do',
+            updateUrl:"${pageContext.request.contextPath}/banner/update.do",
+            url:'${pageContext.request.contextPath}/banner/queryAllBanner.do',
+            destroyUrl:"${pageContext.request.contextPath}/banner/delete.do",
             columns: [[
-                {field: 'title', title: '标题', width: 100},
+                {field: 'name', title: '标题', width: 100},
                 {
                     field: 'status', title: '状态', width: 100, editor: {
                     type: "text",
@@ -16,7 +17,7 @@
                     }
                 }
                 },
-                {field: 'desc', title: '描述', width: 100, align: 'right'},
+                {field: 'description', title: '描述', width: 100, align: 'right'},
                 {field: 'createDate', title: '时间', width: 100},
             ]],
             fit: true,
@@ -48,21 +49,21 @@
                 iconCls: 'icon-remove',
                 text: "删除",
                 handler: function () {
-                    alert('删除按钮')
+                    $('#dg').edatagrid('destroyRow');
+
                 }
             }, '-', {
                 iconCls: 'icon-save',
                 text: "保存",
                 handler: function () {
-                    alert("aaaaaaaaaaaaaaa")
+                   //alert("aaaaaaaaaaaaaaa")
                     $("#dg").edatagrid("saveRow")
                 }
             }],
-
             view: detailview,
             detailFormatter: function (rowIndex, rowData) {
                 return '<table><tr>' +
-                    '<td rowspan=2 style="border:0"><img src="${pageContext.request.contextPath}/' + rowData.url + '" style="height:50px;"></td>' +
+                    '<td rowspan=2 style="border:0"><img src="${pageContext.request.contextPath}/img/' + rowData.url + '" style="height:50px;"></td>' +
                     '<td style="border:0">' +
                     '<p>Attribute: ' + rowData.desc + '</p>' +
                     '<p>Status: ' + rowData.createDate + '</p>' +

@@ -5,9 +5,30 @@
 <mapper namespace="com.baizhi.dao.BannerDao">
 
     <select id="selectAll" resultType="Banner">
-       SELECT * FROM banner
+
+      select * from banner LIMIT #{start},#{end}
 
     </select>
+
+    <select id="selectCount" resultType="int">
+        SELECT count(*) FROM banner
+
+    </select>
+
+    <insert id="insert">
+       insert into banner VALUES(0,#{name},#{url},#{status},#{description},SYSDATE())
+
+    </insert>
+
+    <delete id="deleteMany">
+        delete from banner where id =#{id}
+
+    </delete>
+
+    <update id="update">
+         update banner set name =#{name},url=#{url},status=#{status},
+         description=#{description},createDate=#{createDate} where id =#{id}
+    </update>
 
 
 

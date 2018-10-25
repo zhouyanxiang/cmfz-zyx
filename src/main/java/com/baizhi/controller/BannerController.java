@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2018/10/24.
@@ -22,11 +22,35 @@ public class BannerController {
 
     @RequestMapping("/queryAllBanner")
     @ResponseBody
-    public List<Banner> queryAllBanner(){
-        List<Banner> bannerList = bannerService.queryAllBanner();
+    public Map queryAllBanner(int page, int rows) {
+        Map map = bannerService.queryAllBanner(page, rows);
 
-
-        return bannerList;
+        return map;
     }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public boolean delete(int id) {
+        try {
+            bannerService.deleteMany(id);
+            return  true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public boolean update(Banner banner) {
+        try {
+            bannerService.update(banner);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }
