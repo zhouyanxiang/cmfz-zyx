@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.AlbumDao">
+
+    <resultMap id="albumMap" type="com.baizhi.entity.Album">
+
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="coverImg" property="coverImg"/>
+        <result column="count" property="count"/>
+        <result column="score" property="score"/>
+        <result column="author" property="author"/>
+        <result column="broadCast" property="broadCast"/>
+        <result column="brief" property="brief"/>
+        <result column="publishDate" property="publishDate"/>
+
+        <collection property="children" javaType="java.util.List" ofType="com.baizhi.entity.Chapter">
+            <!--下边这个result映射的时员工的相关属性  -->
+            <result column="id_" property="id"/>
+            <result column="title_" property="title"/>
+            <result column="url_" property="url"/>
+            <result column="size_" property="size"/>
+            <result column="duration_" property="duration"/>
+            <result column="pid_" property="pid"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllAlbumAndChapter" resultMap="albumMap">
+   SELECT b.*,c.id id_, c.title title_, c.url url_,c.size size_,c.duration duration_,c.pid pid_ from album b LEFT JOIN chapter c on b.id = c.pid
+
+   </select>
+
+    <select id="selectAlbumInformation" resultType="Album">
+
+        SELECT * FROM album WHERE id =#{id}
+    </select>
+
+    <insert id="insert">
+
+         INSERT  INTO album VALUES (0,#{title},#{coverImg},#{count},#{score},#{author},#{broadCast},#{brief},SYSDATE())
+    </insert>
+
+
+</mapper>
