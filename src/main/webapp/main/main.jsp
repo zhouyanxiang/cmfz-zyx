@@ -12,7 +12,8 @@
     <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
     <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
     <link rel="stylesheet" type="text/css" href="../themes/icon.css">
-
+    <script src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/china.js"></script>
     <script type="text/javascript">
         <!--菜单处理-->
 

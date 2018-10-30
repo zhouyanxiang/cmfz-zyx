@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.UserDao">
+
+    <select id="selectAllUser" resultType="User">
+        SELECT * FROM user
+
+    </select>
+
+    <select id="selectColumns" resultType="java.lang.String">
+
+
+      SHOW COLUMNS from user
+    </select>
+
+    <select id="selectUserByTime" resultType="int">
+        select count(*) from user where DATEDIFF(SYSDATE(),regDate) <![CDATA[<]]> #{day}
+
+    </select>
+
+    <insert id="insert">
+
+      INSERT into user VALUES(0,#{name},#{password},#{headPic},#{DharmaName},#{sex},#{province},#{city},#{sign},#{phoneNum},"1",#{status},#{regDate})
+    </insert>
+
+    <select id="selectAllUserDTO" resultType="UserDTO">
+        SELECT province ,count(*) count FROM USER GROUP BY province
+    </select>
+
+
+
+
+
+</mapper>

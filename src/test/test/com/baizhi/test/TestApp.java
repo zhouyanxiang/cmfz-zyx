@@ -18,9 +18,8 @@ import java.util.List;
 /**
  * Created by admin on 2018/10/23.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = CmfzApp.class)
-public class TestApp {
+
+public class TestApp extends TestObject{
 
     @Autowired
     AdminService service;
