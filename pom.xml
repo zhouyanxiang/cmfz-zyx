@@ -19,7 +19,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
-  <!--父级项目以来-->
+  <!--父级项目依赖-->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>

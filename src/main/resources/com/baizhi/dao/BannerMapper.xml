@@ -30,6 +30,11 @@
          description=#{description},createDate=#{createDate} where id =#{id}
     </update>
 
+    <select id="queryAllBanner" resultType="Banner">
+
+        SELECT * FROM banner
+    </select>
+
 
 
 

@@ -20,5 +20,7 @@ public interface BannerDao {
 
     public void update(Banner banner);
 
+    public List<Banner> queryAllBanner();
+
 
 }

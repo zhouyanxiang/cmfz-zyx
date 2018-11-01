@@ -29,6 +29,11 @@
         SELECT province ,count(*) count FROM USER GROUP BY province
     </select>
 
+    <select id="selectOne" resultType="User">
+
+        select * from USER WHERE id =#{id}
+    </select>
+
 
 
 

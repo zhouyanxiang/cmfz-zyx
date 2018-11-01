@@ -20,6 +20,8 @@ public interface UserDao {
 
     public List<UserDTO> selectAllUserDTO();
 
+    public User selectOne(int id);
+
 
 
 
